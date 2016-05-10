@@ -85,6 +85,27 @@ typedef enum
 GQuark thrift_server_socket_error_quark (void);
 #define THRIFT_SERVER_SOCKET_ERROR (thrift_server_socket_error_quark ())
 
+/*!
+ * Listen for new connections.
+ * public member instance of ThriftServerTransport class
+ */
+gboolean
+thrift_server_socket_listen (ThriftServerTransport *transport, GError **error);
+
+/*!
+ * Accept a connection.
+ * public member instance of ThriftServerTransport class
+ */
+ThriftTransport *
+thrift_server_socket_accept (ThriftServerTransport *transport, GError **error);
+
+/*!
+ * Close the transport.
+ * public member instance of ThriftServerTransport class
+ */
+gboolean
+thrift_server_socket_close (ThriftServerTransport *transport, GError **error);
+
 G_END_DECLS
 
 #endif
